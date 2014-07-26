@@ -1,0 +1,113 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOC: Autorennamen gerade, + Leerzeile
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewcommand{\tocauthorstyle}{\upshape}
+
+\renewcommand{\tocaftauthskip}{0.5\baselineskip}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modifications for centering of divers elements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\@eqnsel = \hfil
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Punkt hinter Kapitelnummer%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%ging nicht
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Part fuer Phys
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\part{\clearemptydoublepage
+                 \thispagestyle{empty}%
+                 \if@twocolumn
+                     \onecolumn
+                     \@tempswatrue
+                   \else
+                     \@tempswafalse
+                 \fi
+                 %\null\vfil         %schiebt Titel nach unten
+                 \@ifundefined{thispagecropped}{}{\thispagecropped}
+                 \secdef\@part\@spart}
+
+\def\@part[#1]#2{\ifnum \c@secnumdepth >-2\relax  % IF secnumdepth > -2
+        \refstepcounter{part}                     %   THEN step part counter
+        \addcontentsline{toc}{part}{\partname\    %        add toc line
+        \thepart\quad #1}\else                    %   ELSE add unnumbered line
+        \addcontentsline{toc}{part}{#1}\fi        % FI
+   \markboth{}{}
+   {\raggedleft                      % added 8.1.92 FUH
+    \ifnum \c@secnumdepth >-2\relax  % IF secnumdepth > -2
+      \Large\partname\ \thepart      %   THEN Print 'Part' and number
+    \par                             %         in \Large
+    \vskip 103.3pt \fi               %        Add space before title.
+    \bf\boldmath                     % FI
+    #1\par}\@endpart}                % Print Title in \Large bold.
+
+%%%%%%%%%%%%%%%%
+% Summary      %
+%%%%%%%%%%%%%%%%
+
+\renewcommand{\abstractname}{Summary.}
+
+%%%%%%%%%%%%%%%%%%%
+%keine Affiliation im Beitragskopf obligatorisch
+%%%%%%%%%%%%%%%%%%%
+
+\def\institutename{%
+\if!\@institute!\else
+ \par\begingroup
+ \parskip=\z@
+ \parindent=\z@
+ \setcounter{@inst}{1}%
+ \def\and{\par\stepcounter{@inst}%
+          \noindent
+          \llap{\hbox to\instindent{\hss$^{\the@inst}$%
+                              \enspace}}\ignorespaces}%
+ \setbox0=\vbox{\def\thanks##1{}\@institute}%
+ \ifnum\value{@inst}>9\relax\setbox0=\hbox{$^{88}$\enspace}%
+                 \else\setbox0=\hbox{$^{8}$\enspace}\fi
+ \instindent=\wd0
+ \leftskip=\wd0\relax
+ \ifnum\value{@inst}=1\relax
+   \leftskip=\z@
+ \else
+   \setcounter{footnote}{\c@@inst}%
+   \setcounter{@inst}{1}%
+   \noindent
+   \llap{\hbox to\instindent{\hss$^{\the@inst}$\enspace}}\ignorespaces
+ \fi
+ \ignorespaces
+ \@institute\par
+ \endgroup
+\fi}
+\def\clearheadinfo{\gdef\@author{No Author Given}%
+                   \gdef\@title{No Title Given}%
+                   \gdef\@subtitle{}%
+                   \gdef\@institute{}%
+                   \gdef\@thanks{}%
+                   \global\titlerunning={}\global\authorrunning={}%
+                   \global\toctitle={}\global\tocauthor={}}
+\clearheadinfo
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Flushleft captions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%allows captions to be put flushleft
+%\let\leftlegendglue\relax
+%adjusts indentation of equations to text indent
+%\newdimen\mathindent
+%\mathindent = \leftmargini
+
+

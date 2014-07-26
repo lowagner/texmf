@@ -1,0 +1,25 @@
+% RMP headers
+
+%%%%%%%%%%%%%%%%%%% document class and standard packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[rmp,twocolumn,floatfix,amssymb,amsmath,secnumarabic]{revtex4}    %Two column layout
+%\documentclass{book}    %Two column layout
+\usepackage[pdftex]{graphicx} % Include figure files
+\usepackage{dcolumn}  % Align table columns on decimal point
+\usepackage{bm}       % bold math
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{URLCOL}{rgb}{0,0.52,0.83} %external link color
+\definecolor{LINKCOL}{rgb}{0.05,0.5,0} %internal link color
+\definecolor{CITECOL}{rgb}{0.25,0,0.48} %link to bibliography
+\usepackage{epstopdf}
+\usepackage[bookmarks,breaklinks,pdftex,pagebackref,bookmarksopen,bookmarksnumbered,colorlinks,linkcolor=LINKCOL,linktocpage,citecolor=CITECOL,urlcolor=URLCOL,pdfpagemode=UseOutline]{hyperref}
+
+
+%colors for chapters and sections
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\chead{file: \jobname}
+\rhead{Total pages: \pageref{page:end}}
+\fancypagestyle{titlepage}
+{\chead{file: \jobname}\rhead{Total pages: \pageref{page:end}}}
+
+

@@ -1,0 +1,64 @@
+
+%%%%%%%%%%%%%%%%%%% document class and standard packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[landscape,epsf,twocolumn,floatfix,secnumarabic]{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[toc]{multitoc}
+\setlength{\oddsidemargin}{-1cm}        % default=0in
+\setlength{\evensidemargin}{-1cm}
+\setlength{\textwidth}{9.8in}       % default=9in
+
+\setlength{\columnsep}{0.5in}       % default=10pt
+\setlength{\columnseprule}{0pt}     % default=0pt (no line)
+
+\setlength{\textheight}{6.8in}      % default=5.15in
+\setlength{\topmargin}{-0.55in}     % default=0.20in
+\setlength{\headsep}{0.25in}        % default=0.35in
+
+\setlength{\parskip}{1.2ex}
+\setlength{\parindent}{0mm}
+
+
+%\documentstyle[epsf]{book}
+%\def\caption#1{\caption{\Large{#1}}
+
+%\AtBeginDocument{\markboth{\@author}{\@title}} 
+
+\newcommand{\abstract}[1]{
+\newcommand{\keepabstract}{#1}
+}
+
+
+
+%\newcommand\Originaltext{}
+%\let\Originaltext\textrm
+%\renewcommand{\text}[1]{ {\Originaltext{#1}} }
+%\newcommand{\text}[1]{\textrm{#1}}
+
+\input commoninclude
+
+\def\preprintlink{ \href{http://dft.uci.edu}{title of paper} }
+\def\preprinttext{PREPRINT}
+\newcommand{\affiliation}[1]{
+\newcommand{\keepaffiliation}{#1}
+}
+
+
+%Set up header
+\usepackage{fancyhdr}
+\makeatletter
+%header for title page
+%\fancypagestyle{titlepage}
+%{
+%	\lhead{\textsc{\preprinttext\ from the \href{http://dft.uci.edu/publications-list}{Burke Group archives}}}
+%	\chead{}
+%	\rhead{\preprintlink}
+%	\lfoot{}
+%}
+	    %header for remainder
+\pagestyle{fancy}
+%\chead{ \@title}
+\rhead{ \preprintlink }
+\lfoot{\textsc{\preprinttext\ from \href{http://dft.uci.edu/publications-list}{Burke Group archives}}}
+\rfoot{ \@title}
+\makeatother

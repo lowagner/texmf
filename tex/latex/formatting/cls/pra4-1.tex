@@ -1,0 +1,22 @@
+% RMP headers
+
+%%%%%%%%%%%%%%%%%%% document class and standard packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[rmp,twocolumn,floatfix,amssymb,amsmath,secnumarabic]{revtex4-1}    %Two column layout
+\documentclass[pra,twocolumn,floatfix,amssymb,amsmath,secnumarabic,nofootinbib,superscriptaddress]{revtex4-1}    %Two column layout
+%\documentclass{book}    %Two column layout
+
+\input commoninclude
+
+%header with name, date, and total page number
+\usepackage{fancyhdr}
+%\usepackage{extramarks}
+\pagestyle{fancy}
+%\lhead{\thesection}
+%\lhead{\firstleftmark}
+\chead{file: \jobname}
+\rhead{Total pages: \pageref{page:end}}
+\fancypagestyle{titlepage}
+{\chead{file: \jobname}\rhead{Total pages: \pageref{page:end}}}
+
+
+

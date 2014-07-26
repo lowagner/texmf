@@ -1,0 +1,28 @@
+% RMP headers
+
+%%%%%%%%%%%%%%%%%%% document class and standard packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[twocolumn,floatfix,amssymb,amsmath,secnumarabic,nofootinbib,longbibliography]{revtex4-1}    %Two column layout
+%\documentclass{book}    %Two column layout
+
+\input commoninclude
+
+\def\preprintlink{ \href{http://dft.uci.edu}{title of paper} }
+\def\preprinttext{PREPRINT}
+
+%Set up header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\makeatletter
+%header for title page
+\fancypagestyle{titlepage}
+{
+	\lhead{\textsc{\preprinttext\ from the \href{http://dft.uci.edu/publications-list}{Burke Group archives}}}
+	\chead{}
+	\rhead{\preprintlink}
+	\lfoot{}
+}
+	    %header for remainder
+\chead{ \@title}
+\rhead{ \preprintlink }
+\lfoot{\textsc{\preprinttext\ from \href{http://dft.uci.edu/publications-list}{Burke Group archives}}}
+\makeatother
